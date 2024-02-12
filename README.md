@@ -30,10 +30,10 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
 2. **Update Docker Image Name**: Modify the docker image name in the `base/backend-deployment.yaml` file to reflect your Docker registry.
 3. **Deploy the Backend Service**: Deploy the service to both the `dev` and `stage` namespaces using:
     ```sh
-    kubectl apply -k k8s-resources/dev/ -n backend-dev
+    kubectl apply -k dev/ -n backend-dev
     ```
     ```sh
-    kubectl apply -k k8s-resources/stage/ -n backend-stage
+    kubectl apply -k stage/ -n backend-stage
     ```
 
 ### Install APK Environments
