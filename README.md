@@ -1,6 +1,6 @@
 # Customer Data API CI/CD Guide
 
-This guide details the Continuous Integration and Continuous Deployment (CI/CD) artifacts for managing the Customer Data API with WSO2 API Manager Kubernetes Operator (WSO2APK).
+This guide details the Continuous Integration and Continuous Deployment (CI/CD) artifacts for managing the Customer Data API with WSO2 API Manager for Kubernetes (WSO2 APK).
 
 ## Prerequisites
 
