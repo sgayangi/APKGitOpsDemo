@@ -33,7 +33,7 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
     kubectl apply -k dev/ -n backend-dev
     ```
     ```sh
-    kubectl apply -k stage/ -n backend-stage
+    kubectl apply -k staging/ -n backend-stage
     ```
 
 ### Install APK Environments
