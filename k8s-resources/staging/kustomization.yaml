@@ -3,6 +3,6 @@ kind: Kustomization
 metadata:
   name: staging
 resources:
-  - ../base
-patchesStrategicMerge:
-  - backend-deployment.yaml
+- ../base
+patches:
+- path: backend-deployment.yaml
