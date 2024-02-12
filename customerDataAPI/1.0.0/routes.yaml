@@ -1,0 +1,8 @@
+---
+apiVersion: "gateway.networking.k8s.io/v1beta1"
+kind: "HTTPRoute"
+metadata:
+  name: "01ee61ad-619d-14f8-a740-d4bd9c9332a2"
+spec:
+  hostnames:
+    - "dev.gw.wso2.com"
