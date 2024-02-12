@@ -69,7 +69,7 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
       ```
     - Execute the installation command:
       ```sh
-      helm install wso2apk wso2apk/apk-helm --version=1.0.0 -n apk-dev --values values.yaml
+      helm install apkdev wso2apk/apk-helm --version=1.0.0 -n apk-dev --values values.yaml
       ```
 4. **Install WSO2 APK to apk-stage Namespace**:
     - Prepare a `values.yaml` file with the stage configurations:
@@ -105,7 +105,7 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
       ```
     - Apply the installation command:
       ```sh
-      helm install wso2apk wso2apk/apk-helm --version=1.0.0 -n apk-stage --values values.yaml
+      helm install apkstage wso2apk/apk-helm --version=1.0.0 -n apk-stage --values values.yaml
       ```
 
 ### Configure GitHub Actions to Deploy API to Dev and Stage Environments
