@@ -4,7 +4,6 @@ metadata:
   name: backendBase
 commonLabels:
   managed-by: apk-team
-
 resources:
   - backend-deployment.yaml
   - service.yaml
