@@ -1,0 +1,34 @@
+---
+apiVersion: "gateway.networking.k8s.io/v1beta1"
+kind: "HTTPRoute"
+metadata:
+  name: "0559c7e8e81875dde9df64d8217eda2826306cda-production-httproute-1"
+  labels:
+    api-name: "60bb0930a9a6a2fdc8d4c799bfd80297510ec70a"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "7505d64a54e061b7acd54ccd58b49dc43500b635"
+    managed-by: "apk"
+spec:
+  hostnames:
+    - "default.gw.wso2.com"
+  rules:
+    - matches:
+        - path:
+            type: "RegularExpression"
+            value: "/customers"
+          method: "GET"
+      filters:
+        - type: "URLRewrite"
+          urlRewrite:
+            path:
+              type: "ReplaceFullPath"
+              replaceFullPath: "/customers"
+      backendRefs:
+        - group: "dp.wso2.com"
+          kind: "Backend"
+          name: "backend-7b1442c83692c160f3aa2f25414cfee823393c1d-api"
+  parentRefs:
+    - group: "gateway.networking.k8s.io"
+      kind: "Gateway"
+      name: "default"
+      sectionName: "httpslistener"

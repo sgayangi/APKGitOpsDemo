@@ -1,0 +1,8 @@
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - 0559c7e8e81875dde9df64d8217eda2826306cda-definition.yaml
+  - 0559c7e8e81875dde9df64d8217eda2826306cda-production-httproute-1.yaml
+  - 0559c7e8e81875dde9df64d8217eda2826306cda.yaml
+  - backend-7b1442c83692c160f3aa2f25414cfee823393c1d-api.yaml

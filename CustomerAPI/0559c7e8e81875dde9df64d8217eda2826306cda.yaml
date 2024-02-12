@@ -1,0 +1,24 @@
+---
+kind: "API"
+apiVersion: "dp.wso2.com/v1alpha2"
+metadata:
+  name: "0559c7e8e81875dde9df64d8217eda2826306cda"
+  labels:
+    api-name: "60bb0930a9a6a2fdc8d4c799bfd80297510ec70a"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "7505d64a54e061b7acd54ccd58b49dc43500b635"
+    managed-by: "apk"
+spec:
+  apiName: "CustomerAPI"
+  apiType: "REST"
+  apiVersion: "1.0.0"
+  basePath: "/customers/1.0.0"
+  organization: "default"
+  isDefaultVersion: false
+  definitionFileRef: "0559c7e8e81875dde9df64d8217eda2826306cda-definition"
+  production:
+  - httpRouteRefs:
+    - "0559c7e8e81875dde9df64d8217eda2826306cda-production-httproute-1"
+  sandbox: null
+  apiProperties: []
+status: null
