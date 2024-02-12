@@ -37,7 +37,7 @@ Installations
     helm repo add wso2apk https://github.com/wso2/apk/releases/download/1.0.0
     helm repo update
     ```
-3. Install wso2APK to apk-dev namespace.
+3. Install WSO2 APK to apk-dev namespace.
 <br>
 3.1 Create a values.yaml file with the following configurations.
 <br>
@@ -55,7 +55,7 @@ Installations
               apiNamespaces:
                 - "apk-dev"
 ```
-3.2 Install wso2APK to apk-dev namespace.
+3.2 Apply the following command to the apk-dev namespace.
 ```sh
 helm install wso2apk wso2apk/apk-helm --version=1.0.0 -n apk-dev --values values.yaml
 ```
@@ -94,7 +94,7 @@ helm install wso2apk wso2apk/apk-helm --version=1.0.0 -n apk-dev --values values
   certmanager:
     enableClusterIssuer: false
 ```
-4.2 Install wso2APK to apk-stage namespace.
+4.2 Apply the following command to the apk-stage namespace.
 ```sh
 helm install wso2apk wso2apk/apk-helm --version=1.0.0 -n apk-stage --values values.yaml
 ```
@@ -104,17 +104,6 @@ Configure GitHub Actions to Deploy API to Dev and Stage Environments
 
 # Tryout.
 ## Deploy the API to the dev environment.
-1. Go to the Actions under your forked repository.
-2. Select the workflow called "Release DEV API."
-3. Click on the "Run workflow" button and fill in the API name and version as follows.
-    ```
-    API Name: greetingAPI
-    API Version: 1.0.0
-    ```
-4. Click on the "Run workflow" button.
-5. Once completed, you will be able to see the workflow run as shown below.
-   
-   ![dev](https://github.com/tharindu1st/apk-ci-cd-pipeline/assets/6345931/4b9030c8-010d-403d-bdc2-44de0ce9f212)
 
 6. Test the API by sending a request to the dev environment.
 </br>
@@ -147,16 +136,6 @@ kubectl get svc apk-dev-wso2-apk-gateway-service -n apk-dev
   ```
 ## Deploy the API to the stage environment,
 1. Go to the Actions under your forked repository.
-2. Select the workflow called "Release Stage API."
-3. Click on the "Run workflow" button and fill in the API name and version as follows.
-    ```
-    API Name: greetingAPI
-    API Version: 1.0.0
-    ```
-4. Click on the "Run workflow" button.
-5. Once completed, you will be able to see the workflow run as shown below.
-   ![stage](https://github.com/tharindu1st/apk-ci-cd-pipeline/assets/6345931/f42a676b-d2bd-4183-9761-8d77aa41b0c6)
-
 6. Test the API by sending a request to the stage environment.
 </br>
 6.1 Retrieve the staging environment's EXTERNAL-IP address.
@@ -189,11 +168,3 @@ Hello, abce from stage environment!
 ## Uninstall API from the dev/stage environment.
 1. Go to the Actions under your forked repository.
 2. Select the workflow called "Uninstall API."
-3. Click on the "Run workflow" button and fill in the API name, version, and environment as follows.
-
-    ```
-    API Name: greetingAPI
-    API Version: 1.0.0
-    Environment: dev
-    ```
-4. Click on the "Run workflow" button.
