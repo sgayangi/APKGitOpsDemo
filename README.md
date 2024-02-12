@@ -23,12 +23,16 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
 1. **Create Namespaces**: Generate `backend-dev` and `backend-stage` namespaces with the following commands:
     ```sh
     kubectl create namespace backend-dev
+    ```
+    ```sh
     kubectl create namespace backend-stage
     ```
 2. **Update Docker Image Name**: Modify the docker image name in the `base/backend-deployment.yaml` file to reflect your Docker registry.
 3. **Deploy the Backend Service**: Deploy the service to both the `dev` and `stage` namespaces using:
     ```sh
     kubectl apply -k k8s-resources/dev/ -n backend-dev
+    ```
+    ```sh
     kubectl apply -k k8s-resources/stage/ -n backend-stage
     ```
 
@@ -37,11 +41,15 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
 1. **Create APK Namespaces**: Establish `apk-dev` and `apk-stage` namespaces respectively:
     ```sh
     kubectl create namespace apk-dev
+    ```
+    ```sh
     kubectl create namespace apk-stage
     ```
 2. **Add Public Helm Repository**: Add the WSO2APK public helm repository:
     ```sh
     helm repo add wso2apk https://github.com/wso2/apk/releases/download/1.0.0
+    ```
+    ```sh
     helm repo update
     ```
 3. **Install WSO2 APK to apk-dev Namespace**:
