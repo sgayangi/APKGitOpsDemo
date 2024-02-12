@@ -35,6 +35,6 @@ jobs:
         run: |
           apiName="greetingAPI"
           apiVersion="1.0.0"
-          cd stage/${{ apiName }}/${{ apiVersion }}
-          appName=$(echo ${{ apiName }}-${{ apiVersion }}|md5sum| cut -d ' ' -f 1)
-          kapp -y deploy -a $appName -f <(kustomize build .) -n apk-stage --labels version=${{ apiVersion }}
+          cd stage/customerDataAPI/1.0.0
+          appName=$(echo customerDataAPI-1.0.0|md5sum| cut -d ' ' -f 1)
+          kapp -y deploy -a $appName -f <(kustomize build .) -n apk-stage --labels version=1.0.0

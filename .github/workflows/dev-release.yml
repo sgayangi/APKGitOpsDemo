@@ -31,10 +31,8 @@ jobs:
           chmod +x install.sh
           ./install.sh
           kapp version
-      - name: Run API Deployment for greetingAPI 1.0.0
+      - name: Run API Deployment for customerDataAPI 1.0.0
         run: |
-          apiName="greetingAPI"
-          apiVersion="1.0.0"
-          cd dev/${{ apiName }}/${{ apiVersion }}
-          appName=$(echo ${{ apiName }}-${{ apiVersion }}|md5sum| cut -d ' ' -f 1)
-          kapp -y deploy -a $appName -f <(kustomize build .) -n apk-dev --labels version=${{ apiVersion }}
+          cd dev/customerDataAPI/1.0.0
+          appName=$(echo customerDataAPI-1.0.0|md5sum| cut -d ' ' -f 1)
+          kapp -y deploy -a $appName -f <(kustomize build .) -n apk-dev --labels version=1.0.0

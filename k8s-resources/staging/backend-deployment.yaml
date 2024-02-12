@@ -1,0 +1,15 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  labels:
+    app: "backendservice"
+  name: "backendservice-deployment"
+spec:
+  template:
+    spec:
+      containers:
+        - name: "backendservice-deployment"
+          env:
+            - name: "ENVIRONMENT"
+              value: "staging"
