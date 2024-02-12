@@ -1,0 +1,9 @@
+---
+apiVersion: "dp.wso2.com/v1alpha1"
+kind: "Backend"
+metadata:
+  name: "backend-d881b288aa68f008ee98a6a2cc8bbbce144d8c22-api"
+spec:
+  services:
+    - host: "backendservice.backend-stage.svc.cluster.local"
+      port: 9090
