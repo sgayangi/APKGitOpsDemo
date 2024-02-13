@@ -36,6 +36,8 @@ jobs:
           ls
           cd dev
           ls
-          cd dev/CustomerAPI/1.0.0
+          cd customerAPI
+          ls
+          cd 1.0.0
           appName=$(echo CustomerAPI-1.0.0|md5sum| cut -d ' ' -f 1)
           kapp -y deploy -a CustomerAPI -f <(kustomize build .) -n apk-dev --labels version=1.0.0
