@@ -1,6 +1,6 @@
 ---
 kind: "API"
-apiVersion: "dp.wso2.com/v1alpha2"
+apiVersion: "dp.wso2.com/v1alpha1"
 metadata:
   name: "f7996dce4ac15e2af0f8ee14546c4f72988eddae"
   labels:
