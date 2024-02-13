@@ -10,7 +10,7 @@ metadata:
     managed-by: "apk"
 spec:
   services:
-  - host: "api.example.com"
-    port: 443
-  basePath: "/v1"
-  protocol: "https"
+    - host: "backendservice.backend-dev.svc.cluster.local"
+      port: 9090
+  basePath: ""
+  protocol: "http"
