@@ -10,7 +10,7 @@ metadata:
     managed-by: "apk"
 spec:
   services:
-  - host: "run.mocky.io"
-    port: 443
-  basePath: "/v3/85516819-1edd-412b-a32b-a9284705a0b4"
+    - host: "run.mocky.io"
+      port: 443
+  basePath: "/v3/0c5173b2-9d99-459c-946b-b6b67c7f0139"
   protocol: "https"
