@@ -18,7 +18,7 @@ spec:
       containers:
         - image: "sega1234/backendservice:latest"
           name: "backendservice-deployment"
-          imagePullPolicy: "IfNotPresent"
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 9090
               name: "port-1-backends"
