@@ -10,7 +10,7 @@ spec:
     - matches:
         - path:
             type: "RegularExpression"
-            value: "/greeting"
+            value: "/customers"
           method: "GET"
       backendRefs:
         - group: "dp.wso2.com"
