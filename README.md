@@ -173,21 +173,21 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
       You will receive the following response:
       ```
       {
-        "message": "Hello, John! Here are the customers from the dev environment: ",
-        "customers": [
-            {
-                "name": "Test Customer 1",
-                "email": "test1@example.com"
-            },
-            {
-                "name": "Test Customer 2",
-                "email": "test2@example.com"
-            },
-            {
-                "name": "Test Customer 3",
-                "email": "test3@example.com"
-            }
-        ]
+          "message": "Here are the customers from the staging environment: ",
+          "customers": [
+              {
+                  "name": "Alice Johnson",
+                  "email": "alice@mail.com"
+              },
+              {
+                  "name": "Bob Smith",
+                  "email": "bob@mail.com"
+              },
+              {
+                  "name": "Charlie Davis",
+                  "email": "charlie@mail.com"
+              }
+          ]
       }
       ```
 
