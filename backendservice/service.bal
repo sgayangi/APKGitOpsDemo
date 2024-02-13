@@ -19,9 +19,9 @@ service / on new http:Listener(9090) {
         } else if environment == "staging" {
             // Staging environment - Use more realistic customer information with phone numbers
             customerInfo = [
-                {"name": "Alice Johnson", "phone": "123-456-7890"},
-                {"name": "Bob Smith", "phone": "098-765-4321"},
-                {"name": "Charlie Davis", "phone": "555-555-5555"}
+                {"name": "Alice Johnson", "email": "alice@mail.com"},
+                {"name": "Bob Smith", "email": "bob@mail.com"},
+                {"name": "Charlie Davis", "email": "charlie@mail.com"}
             ];
         }
 
