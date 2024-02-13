@@ -31,13 +31,13 @@ jobs:
           chmod +x install.sh
           ./install.sh
           kapp version
-      - name: Run API Deployment for EmployeeAPI 1.0.0
+      - name: Run API Deployment for CustomerAPI 1.0.0
         run: |
           ls
           cd dev
           ls
-          cd employeeAPI
+          cd customerAPI
           ls
           cd 1.0.0
-          appName=$(echo employeeAPI-1.0.0|md5sum| cut -d ' ' -f 1)
+          appName=$(echo customerAPI-1.0.0|md5sum| cut -d ' ' -f 1)
           kapp -y deploy -a $appName -f <(kustomize build .) -n apk-dev --labels version=1.0.0
