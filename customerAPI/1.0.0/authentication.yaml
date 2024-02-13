@@ -1,0 +1,12 @@
+---
+apiVersion: "dp.wso2.com/v1alpha1"
+kind: "Authentication"
+metadata:
+  name: "f7996dce4ac15e2af0f8ee14546c4f72988eddae-production-no-authentication"
+spec:
+  default:
+    disabled: true
+  targetRef:
+    group: ""
+    kind: "Resource"
+    name: "0559c7e8e81875dde9df64d8217eda2826306cda"
