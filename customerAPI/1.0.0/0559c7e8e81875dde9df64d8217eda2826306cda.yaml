@@ -9,7 +9,7 @@ metadata:
     organization: "7505d64a54e061b7acd54ccd58b49dc43500b635"
     managed-by: "apk"
 spec:
-  apiName: "CustomerAPI"
+  apiName: "customerAPI"
   apiType: "REST"
   apiVersion: "1.0.0"
   basePath: "/customers/1.0.0"
@@ -17,8 +17,8 @@ spec:
   isDefaultVersion: false
   definitionFileRef: "0559c7e8e81875dde9df64d8217eda2826306cda-definition"
   production:
-  - httpRouteRefs:
-    - "0559c7e8e81875dde9df64d8217eda2826306cda-production-httproute-1"
+    - httpRouteRefs:
+        - "0559c7e8e81875dde9df64d8217eda2826306cda-production-httproute-1"
   sandbox: null
   apiProperties: []
 status: null
