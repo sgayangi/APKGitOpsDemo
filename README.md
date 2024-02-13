@@ -129,12 +129,28 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
     - Generate a token from the IDP as per the [documentation](https://apk.docs.wso2.com/en/latest/develop-and-deploy-api/security/generate-access-token/).
     - Send a request to the API:
       ```console
-      curl --location 'https://dev.gw.wso2.com:9095/greetingAPI/1.0.0/greeting?name=abce' \
+      curl --location 'https://dev.gw.wso2.com:9095/customerAPI/1.0.0/greeting?name=John' \
       --header 'Authorization: Bearer <accessToken>'
       ```
       You will receive the following response:
       ```
-      Hello, abce from dev environment!
+      {
+        "message": "Hello, John! Here are the customers from the dev environment: ",
+        "customers": [
+            {
+                "name": "Test Customer 1",
+                "email": "test1@example.com"
+            },
+            {
+                "name": "Test Customer 2",
+                "email": "test2@example.com"
+            },
+            {
+                "name": "Test Customer 3",
+                "email": "test3@example.com"
+            }
+        ]
+      }
       ```
 
 ### Deploy the API to the Stage Environment
@@ -151,12 +167,28 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
     - Generate a token from the IDP as outlined in the [documentation](https://apk.docs.wso2.com/en/latest/develop-and-deploy-api/security/generate-access-token/).
     - Send a request to the API:
       ```console
-      curl --location 'https://stage.gw.wso2.com:9095/greetingAPI/1.0.0/greeting?name=abce' \
+      curl --location 'https://stage.gw.wso2.com:9095/customerAPI/1.0.0/greeting?name=John' \
       --header 'Authorization: Bearer <accessToken>'
       ```
       You will receive the following response:
       ```
-      Hello, abce from stage environment!
+      {
+        "message": "Hello, John! Here are the customers from the dev environment: ",
+        "customers": [
+            {
+                "name": "Test Customer 1",
+                "email": "test1@example.com"
+            },
+            {
+                "name": "Test Customer 2",
+                "email": "test2@example.com"
+            },
+            {
+                "name": "Test Customer 3",
+                "email": "test3@example.com"
+            }
+        ]
+      }
       ```
 
 ### Uninstall API from the Dev/Stage Environment
