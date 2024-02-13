@@ -17,12 +17,10 @@ spec:
             type: "RegularExpression"
             value: "/customers"
           method: "GET"
-      filters:
-        - type: "URLRewrite"
-          urlRewrite:
-            path:
-              type: "ReplaceFullPath"
-              replaceFullPath: "/customers"
+        - path:
+            type: "RegularExpression"
+            value: "/test"
+          method: "GET"
       backendRefs:
         - group: "dp.wso2.com"
           kind: "Backend"
