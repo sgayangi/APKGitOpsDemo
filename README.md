@@ -120,7 +120,7 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
 1. **Test the API**: Send a request to the development environment.
     - Retrieve the dev environment's EXTERNAL-IP address:
       ```console
-      kubectl get svc apk-dev-wso2-apk-gateway-service -n apk-dev
+      kubectl get svc apkdev-wso2-apk-gateway-service -n apk-dev
       ```
     - Create an `/etc/hosts` entry for the dev environment's EXTERNAL-IP address:
       ```console
@@ -142,7 +142,7 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
 1. **Test the API**: Send a request to the staging environment.
     - Retrieve the staging environment's EXTERNAL-IP address:
       ```console
-      kubectl get svc apk-stage-wso2-apk-gateway-service -n apk-stage
+      kubectl get svc apkstage-wso2-apk-gateway-service -n apk-stage
       ```
     - Create an `/etc/hosts` entry for the stage environment's EXTERNAL-IP address:
       ```console
