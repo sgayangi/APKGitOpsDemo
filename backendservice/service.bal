@@ -19,8 +19,8 @@ service / on new http:Listener(9090) {
 
             customerInfo = [
                 {"name": "Alice Johnson", "email": "alice@mail.com"},
-                {"name": "Bob Smith", "phone": "bob@mail.com"},
-                {"name": "Charlie Davis", "phone": "charlie@mail.com"}
+                {"name": "Bob Smith", "email": "bob@mail.com"},
+                {"name": "Charlie Davis", "email": "charlie@mail.com"}
             ];
         }
 
