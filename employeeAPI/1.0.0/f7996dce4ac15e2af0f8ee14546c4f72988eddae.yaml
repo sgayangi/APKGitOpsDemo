@@ -12,13 +12,13 @@ spec:
   apiName: "EmployeeServiceAPI"
   apiType: "REST"
   apiVersion: "3.14"
-  basePath: "/RW1wbG95ZWVTZXJ2aWNlQVBJMy4xNA/3.14"
+  basePath: "/employees/3.14"
   organization: "default"
   isDefaultVersion: false
   definitionFileRef: "f7996dce4ac15e2af0f8ee14546c4f72988eddae-definition"
   production:
-  - httpRouteRefs:
-    - "f7996dce4ac15e2af0f8ee14546c4f72988eddae-production-httproute-1"
+    - httpRouteRefs:
+        - "f7996dce4ac15e2af0f8ee14546c4f72988eddae-production-httproute-1"
   sandbox: null
   apiProperties: []
 status: null
