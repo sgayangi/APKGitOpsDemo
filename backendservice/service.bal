@@ -5,6 +5,14 @@ import ballerina/os;
 # bound to port `9090`.
 service / on new http:Listener(9090) {
 
+    resource function get test() returns http:Response {
+        string environment = os:getEnv("ENVIRONMENT");
+        string message = environment + " environment";
+        http:Response response = new;
+        response.setJsonPayload({"message": message});
+        return response;
+    }
+
     resource function get customers() returns http:Response {
         string environment = os:getEnv("ENVIRONMENT");
         json customerInfo = {};
