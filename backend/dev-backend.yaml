@@ -1,0 +1,35 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  labels:
+    app: "backendservice"
+  name: "backendservice-deployment"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "backendservice"
+  template:
+    metadata:
+      labels:
+        app: "backendservice"
+    spec:
+      containers:
+        - image: "sega1234/backendservice:latest"
+          name: "backendservice-deployment"
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 9090
+              name: "port-1-backends"
+              protocol: "TCP"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "100Mi"
+              cpu: "200m"
+          env:
+            - name: "ENVIRONMENT"
+              value: "dev"
