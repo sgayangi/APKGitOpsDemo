@@ -33,3 +33,19 @@ spec:
           env:
             - name: "ENVIRONMENT"
               value: "dev"
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  labels:
+    app: "backendservice"
+  name: "backendservice"
+spec:
+  ports:
+    - name: "port-1-backends"
+      port: 9090
+      protocol: "TCP"
+      targetPort: 9090
+  selector:
+    app: "backendservice"
+  type: "ClusterIP"
