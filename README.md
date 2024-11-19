@@ -24,13 +24,10 @@ There are two backends here - one for the dev environment, and the other for the
 
 1. **Create Namespaces**: Generate `backend-dev` and `backend-stage` namespaces with the following commands:
     ```sh
-    kubectl create namespace backend-dev
+    kubectl create namespace backend-dev backend-stage
     ```
-    ```sh
-    kubectl create namespace backend-stage
-    ```
-2. Go to the backend folder.
-3. **Deploy the Backend Service**: Deploy the service to both the `dev` and `stage` namespaces using:
+2. Go to the "backend" folder in the main branch. It will contain two yaml files - dev-backend.yaml and stage-backend.yaml.
+3. **Deploy the Backend Service**: Deploy the service to both the `apk-dev` and `apk-stage` namespaces using:
     ```sh
     kubectl apply -f dev-backend.yaml -n backend-dev
     ```
