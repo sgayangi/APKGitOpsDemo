@@ -8,7 +8,7 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
 
 ## Installation Instructions
 
-### Build and Push the Backend Docker Image
+### Build and Push the Backend Docker Image (Optional)
 
 1. **Install Ballerina**: Begin by installing Ballerina on your machine.
 2. **Check Out the Backend Branch**: Switch to the backend branch in your repository.
@@ -20,6 +20,8 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
 
 ### Install Backend Service
 
+There are two backends here - one for the dev environment, and the other for the stage environment. The only difference between the two is the responses returned upon being invoked.
+
 1. **Create Namespaces**: Generate `backend-dev` and `backend-stage` namespaces with the following commands:
     ```sh
     kubectl create namespace backend-dev
@@ -27,14 +29,16 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
     ```sh
     kubectl create namespace backend-stage
     ```
-2. **Update Docker Image Name**: Modify the docker image name in the `base/backend-deployment.yaml` file to reflect your Docker registry.
+2. Go to the backend folder.
 3. **Deploy the Backend Service**: Deploy the service to both the `dev` and `stage` namespaces using:
     ```sh
-    kubectl apply -k dev/ -n backend-dev
+    kubectl apply -f dev-backend.yaml -n backend-dev
     ```
     ```sh
-    kubectl apply -k staging/ -n backend-stage
+    kubectl apply -f stage-backend.yaml -n backend-stage
     ```
+
+    This will spin up two backends in the different namespaces.
 
 ### Install APK Environments
 
@@ -47,71 +51,31 @@ This guide details the Continuous Integration and Continuous Deployment (CI/CD) 
     ```
 2. **Add Public Helm Repository**: Add the WSO2APK public helm repository:
     ```sh
-    helm repo add wso2apk https://github.com/wso2/apk/releases/download/1.0.0
+    helm repo add wso2apk https://github.com/wso2/apk/releases/download/1.2.0
     ```
     ```sh
     helm repo update
     ```
-3. **Install WSO2 APK to apk-dev Namespace**:
-    - Create a `values.yaml` file with the following configurations:
-      ```yaml
-      wso2:
-        apk:
-          dp:
-            adapter:
-              configs:
-                apiNamespaces:
-                  - "apk-dev"
-            commonController:
-              configs:
-                apiNamespaces:
-                  - "apk-dev"
-      ```
+    
+3. **Install WSO2 APK to apk-dev Namespace:
+   
     - Execute the installation command:
       ```sh
-      helm install apkdev wso2apk/apk-helm --version=1.0.0 -n apk-dev --values values.yaml
+      helm install apkdev wso2apk/apk-helm --version=1.2.0 -n apk-dev
       ```
-4. **Install WSO2 APK to apk-stage Namespace**:
-    - Prepare a `values.yaml` file with the stage configurations:
-      ```yaml
-      wso2:
-        apk:
-          webhooks:
-            validatingwebhookconfigurations: true
-            mutatingwebhookconfigurations: true
-          auth:
-            enabled: true
-            enableServiceAccountCreation: true
-            enableClusterRoleCreation: false
-            serviceAccountName: wso2apk-platform
-            roleName: wso2apk-role
-          dp:
-            adapter:
-              configs:
-                apiNamespaces:
-                  - "apk-stage"
-            commonController:
-              configs:
-                apiNamespaces:
-                  - "apk-stage"
-      gatewaySystem:
-        enabled: true
-        enableServiceAccountCreation: true
-        enableClusterRoleCreation: false
-        serviceAccountName: gateway-api-admission
+      
+5. **Install WSO2 APK to apk-stage Namespace**:
 
-      certmanager:
-        enableClusterIssuer: false
-      ```
     - Apply the installation command:
       ```sh
-      helm install apkstage wso2apk/apk-helm --version=1.0.0 -n apk-stage --values values.yaml
+      helm install apkstage wso2apk/apk-helm --version=1.2.0 -n apk-stage
       ```
 
 ### Configure GitHub Actions to Deploy API to Dev and Stage Environments
 
-1. **Fork the Repository**: Fork the repository to your GitHub account.
+1. **Fork the Repository**: Fork this repository to your GitHub account.
 2. **Configure KUBE_CONFIG**: Set up **KUBE_CONFIG** in GitHub secrets to work with your Kubernetes cluster.
+    - In your forked repository, under Settings, create a repository secret named "KUBE_CONFIG"
 
 ## Tryout
 
