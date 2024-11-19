@@ -51,24 +51,65 @@ There are two backends here - one for the dev environment, and the other for the
     ```
 2. **Add Public Helm Repository**: Add the WSO2APK public helm repository:
     ```sh
-    helm repo add wso2apk https://github.com/wso2/apk/releases/download/1.2.0
+    helm repo add wso2apk https://github.com/wso2/apk/releases/download/1.0.0
     ```
     ```sh
     helm repo update
     ```
-    
-3. **Install WSO2 APK to apk-dev Namespace:
-   
+3. **Install WSO2 APK to apk-dev Namespace**:
+    - Create a `values.yaml` file with the following configurations:
+      ```yaml
+      wso2:
+        apk:
+          dp:
+            adapter:
+              configs:
+                apiNamespaces:
+                  - "apk-dev"
+            commonController:
+              configs:
+                apiNamespaces:
+                  - "apk-dev"
+      ```
     - Execute the installation command:
       ```sh
-      helm install apkdev wso2apk/apk-helm --version=1.2.0 -n apk-dev
+      helm install apkdev wso2apk/apk-helm --version=1.0.0 -n apk-dev --values values.yaml
       ```
-      
-5. **Install WSO2 APK to apk-stage Namespace**:
+4. **Install WSO2 APK to apk-stage Namespace**:
+    - Prepare a `values.yaml` file with the stage configurations:
+      ```yaml
+      wso2:
+        apk:
+          webhooks:
+            validatingwebhookconfigurations: true
+            mutatingwebhookconfigurations: true
+          auth:
+            enabled: true
+            enableServiceAccountCreation: true
+            enableClusterRoleCreation: false
+            serviceAccountName: wso2apk-platform
+            roleName: wso2apk-role
+          dp:
+            adapter:
+              configs:
+                apiNamespaces:
+                  - "apk-stage"
+            commonController:
+              configs:
+                apiNamespaces:
+                  - "apk-stage"
+      gatewaySystem:
+        enabled: true
+        enableServiceAccountCreation: true
+        enableClusterRoleCreation: false
+        serviceAccountName: gateway-api-admission
 
+      certmanager:
+        enableClusterIssuer: false
+      ```
     - Apply the installation command:
       ```sh
-      helm install apkstage wso2apk/apk-helm --version=1.2.0 -n apk-stage
+      helm install apkstage wso2apk/apk-helm --version=1.0.0 -n apk-stage --values values.yaml
       ```
 
 ### Configure GitHub Actions to Deploy API to Dev and Stage Environments
@@ -76,11 +117,25 @@ There are two backends here - one for the dev environment, and the other for the
 1. **Fork the Repository**: Fork this repository to your GitHub account.
 2. **Configure KUBE_CONFIG**: Set up **KUBE_CONFIG** in GitHub secrets to work with your Kubernetes cluster.
     - In your forked repository, under Settings, create a repository secret named "KUBE_CONFIG"
+    - The secret should contain the kubeconfig file in YAML format, which includes all necessary information for accessing the cluster.
+    - You can follow the documentation here: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/kubectl_config_view/
 
 ## Tryout
 
+### View the workflows
+
+You will be able to see the workflows under the actions tab of your Github repository, as follows.
+
+<img width="381" alt="Screenshot 2024-11-19 at 13 52 49" src="https://github.com/user-attachments/assets/6bfac8e6-fd51-420e-8b31-5974862dc307">
+
+There will be one workflow that runs when a PR is merged to the dev branch, and another that runs when a PR is merged to the stage branch.
+
 ### Deploy the API to the Dev Environment
 
+You can now create a Pull Request that has some changes done to the dev branch, such as editing a field. The workflow is configured to run whenever a PR is merged to the dev branch.
+
+Once you merge the PR, you will be able to see that the API has been deployed to the apk-dev namespace.
+Now, let's do the following.
 1. **Test the API**: Send a request to the development environment.
     - Retrieve the dev environment's EXTERNAL-IP address:
       ```console
@@ -118,6 +173,10 @@ There are two backends here - one for the dev environment, and the other for the
       ```
 
 ### Deploy the API to the Stage Environment
+
+You can now create a Pull Request that has some changes done to the stage branch, such as editing a field. The workflow is configured to run whenever a PR is merged to the stage branch.
+
+Once you merge the PR, you will be able to see that the API has been deployed to the apk-stage namespace.
 
 1. **Test the API**: Send a request to the staging environment.
     - Retrieve the staging environment's EXTERNAL-IP address:
