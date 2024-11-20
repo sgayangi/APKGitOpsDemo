@@ -1,5 +1,7 @@
 # Customer Data API CI/CD Guide
 
+NOTE: This repository is set up to work with APK 1.0.0. For later versions, you may need to update the sample values.yaml files and the CRs provided, along with the workflow files.
+
 This guide details the Continuous Integration and Continuous Deployment (CI/CD) artifacts for managing the Customer Data API with WSO2 API Manager for Kubernetes (WSO2 APK).
 
 ## Prerequisites
