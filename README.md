@@ -1,12 +1,22 @@
 # Customer Data API CI/CD Guide
 
 NOTE: This repository is set up to work with APK 1.0.0. For later versions, you may need to update the sample values.yaml files and the CRs provided, along with the workflow files.
+Sample CRs for APK 1.2.0 have been added under the CustomerAPI/1.2.0 folder. You can generate the new artifacts following the Quick Start Guide [here](https://apk.docs.wso2.com/en/latest/get-started/quick-start-guide-with-cp/#deploy-the-api-in-apk-dataplane).
+The command is:
+```
+curl --location 'https://api.am.wso2.com:9095/api/configurator/1.2.0/apis/generate-k8s-resources?organization=carbon.super' \
+--header 'Content-Type: multipart/form-data' \
+--header 'Accept: application/zip' \
+--form 'apkConfiguration=@"/Users/user/EmployeeService.apk-conf"' \
+--form 'definitionFile=@"/Users/user/EmployeeServiceDefinition.json"' \
+-k --output ./api-crds.zip
+```
 
 This guide details the Continuous Integration and Continuous Deployment (CI/CD) artifacts for managing the Customer Data API with WSO2 API Manager for Kubernetes (WSO2 APK).
 
 ## Prerequisites
 
-- A Kubernetes (K8s) Cluster
+- A Kubernetes (K8s) Cluster which can be accessed by your GitOps workflow.
 
 ## Installation Instructions
 
@@ -40,6 +50,8 @@ There are two backends here - one for the dev environment, and the other for the
     This will spin up two backends in the different namespaces.
 
 ### Install APK Environments
+
+NOTE: You can still do this demo if you have a single installation of APK, by following the steps relevant to one of the dev or stage environments.
 
 1. **Create APK Namespaces**: Establish `apk-dev` and `apk-stage` namespaces respectively:
     ```sh
@@ -118,6 +130,9 @@ There are two backends here - one for the dev environment, and the other for the
     - In your forked repository, under Settings, create a repository secret named "KUBE_CONFIG"
     - The secret should contain the kubeconfig file in YAML format, which includes all necessary information for accessing the cluster.
     - You can follow the documentation here: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/kubectl_config_view/
+3. Edit your workflow file and update the namespaces as needed.
+    - In the dev branch, the workflow file has the namespace as "apk" - you can see this in line 38.
+    - Update the namespace required in the workflow file of your forked repository.
 
 ## Tryout
 
@@ -131,9 +146,11 @@ There will be one workflow that runs when a PR is merged to the dev branch, and 
 
 ### Deploy the API to the Dev Environment
 
-You can now create a Pull Request that has some changes done to the dev branch, such as editing a field. The workflow is configured to run whenever a PR is merged to the dev branch.
+This guide assumes that your namespace is "apk-dev". Update the commands provided below if your namespace is different.
+You can now create a Pull Request that has some changes done to the dev branch. The workflow is configured to run whenever a PR is merged to the dev branch.
 
 Once you merge the PR, you will be able to see that the API has been deployed to the apk-dev namespace.
+
 Now, let's do the following.
 1. **Test the API**: Send a request to the development environment.
     - Retrieve the dev environment's EXTERNAL-IP address:
