@@ -1,0 +1,12 @@
+---
+kind: "ConfigMap"
+apiVersion: "v1"
+metadata:
+  name: "62356abc010b455685da2e39efb308a2f46a4389-definition"
+  labels:
+    api-name: "db24dd82f4d08df536b81fd945553a0029e8fe5a"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "2e14f1a627e0f7388df2efa85fba6816ac25f094"
+    managed-by: "apk"
+binaryData:
+  definition: "H4sIAAAAAAAA/4VSwW7bMAz9FUHbMYiz7pbbUOxQYBgKDDsNPagSbauQJY2iN2RB/n0k3TjLOnS+mOIjH58edbSlQnY12r19v91td3ZjbMx9sfujpUgJGPBzozIBfri/EzhA8xgrxZIZ5KTpC5rJZTfEPJhztQmO3MbE7NMcBOBJ6KSraYNH4FMeNoaDoMFcw3PK5WACJKArRgRfMLStqPgB2BYF71T3iXMNUNJ2/+1oZ0yMjUS17btO/o8xbwsOncsHGpn35V3usYTZy8EsVPb0oLR+xkgH5Q3QuzkRxw8KVkdjE7e6s0w9DUBqoRtEjr1dMSWcp8kh89lPsZFxKZlLM+OrU3eBaxLX3P4JI7TKLoIOutnt5PfXUow0mdJfeNU0XzJBVmWu1hS9TumemnQdbfMjTE51H6ps3iG6gz4JgknHvUXoGXjT+TKxCCZr3dLWurNIe9LvVecW/EJyGa/hSsUxwvc5IgTxkfGYRFB2E6iXz0rL4xN4EqSi2EdxsUfrLhdqhP/c/GcuE7tohNUyfVLLwP8TfJQ640Lg5bSXTNd2fJGLLvpWU9YJxc003siEPpWfWhQn2VVc9sZowfhLN/f16pETNNqypdLbPLsgzcsuTr8B5C/jGekDAAA="

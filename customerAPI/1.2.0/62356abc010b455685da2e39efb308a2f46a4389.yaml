@@ -1,0 +1,24 @@
+---
+kind: "API"
+apiVersion: "dp.wso2.com/v1alpha3"
+metadata:
+  name: "62356abc010b455685da2e39efb308a2f46a4389"
+  labels:
+    api-name: "db24dd82f4d08df536b81fd945553a0029e8fe5a"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "2e14f1a627e0f7388df2efa85fba6816ac25f094"
+    managed-by: "apk"
+spec:
+  apiName: "customerAPI"
+  apiType: "REST"
+  apiVersion: "1.2.0"
+  basePath: "/customers/1.2.0"
+  organization: "carbon.super"
+  isDefaultVersion: false
+  definitionFileRef: "62356abc010b455685da2e39efb308a2f46a4389-definition"
+  production:
+    - routeRefs:
+        - "62356abc010b455685da2e39efb308a2f46a4389-production-httproute-1"
+  sandbox: null
+  apiProperties: []
+status: null
