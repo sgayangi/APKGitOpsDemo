@@ -4,7 +4,7 @@ NOTE: This repository is set up to work with APK 1.0.0. For later versions, you 
 Sample CRs for APK 1.2.0 have been added under the CustomerAPI/1.2.0 folder. You can generate the new artifacts following the Quick Start Guide [here](https://apk.docs.wso2.com/en/latest/get-started/quick-start-guide-with-cp/#deploy-the-api-in-apk-dataplane).
 The command is:
 ```
-curl --location 'https://api.am.wso2.com:9095/api/configurator/1.2.0/apis/generate-k8s-resources?organization=carbon.super' \
+curl --location 'https://api.am.wso2.com:9095/api/configurator/1.2.0/apis/generate-k8s-resources' \
 --header 'Content-Type: multipart/form-data' \
 --header 'Accept: application/zip' \
 --form 'apkConfiguration=@"/Users/user/EmployeeService.apk-conf"' \
